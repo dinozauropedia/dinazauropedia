@@ -1,65 +1,235 @@
-import Image from "next/image";
+const featuredArticles = [
+  {
+    category: "Paleontologia",
+    title: "Czym jest paleontologia?",
+    description: "Nauka o życiu sprzed milionów lat, skamieniałościach i historii Ziemi.",
+    meta: "6 min czytania",
+  },
+  {
+    category: "Gatunki",
+    title: "Tyrannosaurus rex — król późnej kredy",
+    description: "Najbardziej rozpoznawalny drapieżnik w historii i symbol świata dinozaurów.",
+    meta: "8 min czytania",
+  },
+  {
+    category: "Odkrycia",
+    title: "Nowe odkrycia, które zmieniły wiedzę o dinozaurach",
+    description: "Dlaczego paleontologia ciągle zaskakuje i jak nowe znaleziska zmieniają podręczniki.",
+    meta: "7 min czytania",
+  },
+  {
+    category: "Ewolucja",
+    title: "Czy dinozaury naprawdę wyginęły?",
+    description: "Ptaki jako żyjący potomkowie dinozaurów i jedna z najciekawszych historii ewolucji.",
+    meta: "5 min czytania",
+  },
+];
+
+const news = [
+  "Odkryto nowy gatunek dinozaura w Ameryce Południowej",
+  "Ślady dinozaurów w Polsce — najciekawsze stanowiska",
+  "Nowe badania nad piórami u teropodów",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+    <main>
+      <header className="site-header">
+        <div className="container header-inner">
+          <a className="logo" href="#">
+            <span className="logo-mark">◉</span>
+            <span>Dinozauropedia.pl</span>
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+
+          <nav className="nav">
+            <a href="#">Artykuły</a>
+            <a href="#">Gatunki</a>
+            <a href="#">E-booki</a>
+            <a href="#">Aktualności</a>
+            <a href="#">Sklep</a>
+            <a href="#">O nas</a>
+          </nav>
+
+          <a className="header-button" href="#">
+            Dołącz do newslettera
           </a>
         </div>
-      </main>
-    </div>
+      </header>
+
+      <section className="hero">
+        <div className="hero-overlay" />
+        <div className="container hero-inner">
+          <div className="hero-content">
+            <p className="eyebrow">Portal o dinozaurach i prehistorii</p>
+            <h1>Odkrywaj fascynujący świat dinozaurów</h1>
+            <p className="hero-text">
+              Rzetelne artykuły, ciekawostki, newsy i e-booki dla wszystkich,
+              którzy chcą lepiej poznać prehistoryczny świat.
+            </p>
+
+            <div className="hero-actions">
+              <a className="primary-button" href="#">
+                Czytaj artykuły
+              </a>
+              <a className="secondary-button" href="#">
+                Pobierz darmowy e-book
+              </a>
+            </div>
+          </div>
+
+          <div className="hero-card">
+            <span className="hero-card-label">Startujemy</span>
+            <h2>Nowy portal edukacyjny</h2>
+            <p>
+              Artykuły, baza gatunków, darmowe materiały PDF i premium e-booki
+              w jednym miejscu.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container section-grid">
+          <div className="main-column">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">Redakcja poleca</p>
+                <h2>Polecane artykuły</h2>
+              </div>
+              <a href="#">Zobacz wszystkie</a>
+            </div>
+
+            <div className="articles-grid">
+              {featuredArticles.map((article) => (
+                <article className="article-card" key={article.title}>
+                  <div className="article-image">
+                    <span>{article.category}</span>
+                  </div>
+                  <div className="article-content">
+                    <p className="article-category">{article.category}</p>
+                    <h3>{article.title}</h3>
+                    <p>{article.description}</p>
+                    <small>{article.meta}</small>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="premium-box">
+              <div className="book-cover premium-cover">
+                <span>ATLAS</span>
+                <strong>DINOZAURÓW</strong>
+                <small>Dinozauropedia.pl</small>
+              </div>
+
+              <div className="premium-content">
+                <p className="eyebrow">E-book premium</p>
+                <h2>Atlas dinozaurów</h2>
+                <p>
+                  Kompleksowy przewodnik po świecie dinozaurów: gatunki, epoki,
+                  odkrycia, ilustracje i najważniejsze fakty.
+                </p>
+
+                <div className="features">
+                  <span>120+ stron</span>
+                  <span>50+ gatunków</span>
+                  <span>PDF</span>
+                </div>
+              </div>
+
+              <div className="price-box">
+                <strong>39,90 zł</strong>
+                <a className="gold-button" href="#">
+                  Kup e-book
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <aside className="sidebar">
+            <div className="free-ebook-box">
+              <div>
+                <p className="eyebrow">E-book za darmo</p>
+                <h2>10 faktów o dinozaurach, które Cię zaskoczą</h2>
+                <p>
+                  Pobierz bezpłatny PDF i poznaj najciekawsze fakty o świecie
+                  prehistorii.
+                </p>
+                <ul>
+                  <li>10 fascynujących faktów</li>
+                  <li>Dla dzieci i dorosłych</li>
+                  <li>PDF od razu na urządzeniu</li>
+                </ul>
+                <a className="primary-button" href="#">
+                  Pobierz za darmo
+                </a>
+              </div>
+
+              <div className="book-cover free-cover">
+                <span>10 FAKTÓW</span>
+                <strong>O DINOZAURACH</strong>
+                <small>Darmowy e-book</small>
+              </div>
+            </div>
+
+            <div className="news-box">
+              <div className="section-heading compact">
+                <div>
+                  <p className="eyebrow">Aktualności</p>
+                  <h2>Najnowsze newsy</h2>
+                </div>
+              </div>
+
+              {news.map((item) => (
+                <article className="news-item" key={item}>
+                  <div className="news-thumb" />
+                  <div>
+                    <h3>{item}</h3>
+                    <small>Nowy wpis</small>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="newsletter">
+        <div className="container newsletter-inner">
+          <div>
+            <p className="eyebrow">Społeczność</p>
+            <h2>Dołącz do Dinozauropedia.pl</h2>
+            <p>
+              Otrzymuj nowe artykuły, newsy i materiały specjalne prosto na
+              swoją skrzynkę.
+            </p>
+          </div>
+
+          <form className="newsletter-form">
+            <input type="email" placeholder="Twój adres e-mail" />
+            <button type="submit">Zapisz się</button>
+          </form>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <div className="container footer-inner">
+          <div>
+            <a className="logo footer-logo" href="#">
+              <span className="logo-mark">◉</span>
+              <span>Dinozauropedia.pl</span>
+            </a>
+            <p>Twoje źródło wiedzy o dinozaurach i prehistorii.</p>
+          </div>
+
+          <div className="footer-links">
+            <a href="#">Artykuły</a>
+            <a href="#">Gatunki</a>
+            <a href="#">E-booki</a>
+            <a href="#">Kontakt</a>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }
