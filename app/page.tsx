@@ -42,13 +42,13 @@ export default function Home() {
           </a>
 
           <nav className="nav">
-            <a href="#">Artykuły</a>
-            <a href="#">Gatunki</a>
-            <a href="#">E-booki</a>
-            <a href="#">Aktualności</a>
-            <a href="#">Sklep</a>
-            <a href="#">O nas</a>
-          </nav>
+  <a href="/artykuly">Artykuły</a>
+  <a href="/gatunki">Gatunki</a>
+  <a href="/e-booki">E-booki</a>
+  <a href="/aktualnosci">Aktualności</a>
+  <a href="/sklep">Sklep</a>
+  <a href="/o-nas">O nas</a>
+</nav>
 
           <a className="header-button" href="#">
             Dołącz do newslettera
