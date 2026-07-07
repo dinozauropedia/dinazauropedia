@@ -1,29 +1,4 @@
-const articles = [
-  {
-    category: "Paleontologia",
-    title: "Czym jest paleontologia?",
-    description:
-      "Podstawy nauki o skamieniałościach, dawnym życiu i historii Ziemi.",
-  },
-  {
-    category: "Gatunki",
-    title: "Tyrannosaurus rex — król późnej kredy",
-    description:
-      "Najbardziej znany drapieżnik w historii i symbol świata dinozaurów.",
-  },
-  {
-    category: "Ewolucja",
-    title: "Czy dinozaury miały pióra?",
-    description:
-      "Odkrycia, które zmieniły sposób patrzenia na wygląd wielu dinozaurów.",
-  },
-  {
-    category: "Wymieranie",
-    title: "Dlaczego dinozaury wyginęły?",
-    description:
-      "Asteroida, zmiany klimatu i jedna z największych katastrof w dziejach Ziemi.",
-  },
-];
+import { articles } from "../../data/articles";
 
 export default function ArticlesPage() {
   return (
@@ -42,15 +17,20 @@ export default function ArticlesPage() {
       <section className="section">
         <div className="container articles-grid">
           {articles.map((article) => (
-            <article className="article-card" key={article.title}>
+            <article className="article-card" key={article.slug}>
               <div className="article-image">
                 <span>{article.category}</span>
               </div>
+
               <div className="article-content">
                 <p className="article-category">{article.category}</p>
                 <h3>{article.title}</h3>
                 <p>{article.description}</p>
-                <small>Wkrótce na stronie</small>
+                <small>{article.readingTime}</small>
+
+                <div className="card-action">
+                  <a href={`/artykuly/${article.slug}`}>Czytaj artykuł</a>
+                </div>
               </div>
             </article>
           ))}
