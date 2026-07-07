@@ -1,4 +1,5 @@
 import { articles } from "../data/articles";
+import { news } from "../data/news";
 
 const featuredArticles = articles.slice(0, 3);
 
@@ -20,20 +21,7 @@ const featuredSpecies = [
   },
 ];
 
-const news = [
-  {
-    title: "Odkryto nowy gatunek dinozaura w Ameryce Południowej",
-    href: "/aktualnosci",
-  },
-  {
-    title: "Ślady dinozaurów w Polsce — najciekawsze stanowiska",
-    href: "/aktualnosci",
-  },
-  {
-    title: "Nowe badania nad piórami u teropodów",
-    href: "/aktualnosci",
-  },
-];
+
 
 export default function Home() {
   return (
@@ -201,16 +189,20 @@ export default function Home() {
                 </div>
               </div>
 
-              {news.map((item) => (
-                <a className="news-item" href={item.href} key={item.title}>
-                  <div className="news-thumb" />
+              {news.slice(0, 3).map((item) => (
+  <a
+    className="news-item"
+    href={`/aktualnosci/${item.slug}`}
+    key={item.slug}
+  >
+    <div className="news-thumb" />
 
-                  <div>
-                    <h3>{item.title}</h3>
-                    <small>Przejdź do aktualności</small>
-                  </div>
-                </a>
-              ))}
+    <div>
+      <h3>{item.title}</h3>
+      <small>{item.category}</small>
+    </div>
+  </a>
+))}
             </div>
           </aside>
         </div>

@@ -1,8 +1,4 @@
-const news = [
-  "Nowe badania nad wyglądem tyranozaurów",
-  "Ślady dinozaurów w Polsce — gdzie ich szukać?",
-  "Paleontolodzy opisali kolejny gatunek teropoda",
-];
+import { news } from "../../data/news";
 
 export default function NewsPage() {
   return (
@@ -21,15 +17,22 @@ export default function NewsPage() {
       <section className="section">
         <div className="container news-list-page">
           {news.map((item) => (
-            <article className="news-page-card" key={item}>
+            <article className="news-page-card" key={item.slug}>
               <div className="news-thumb" />
+
               <div>
-                <p className="eyebrow">News</p>
-                <h2>{item}</h2>
-                <p>
-                  Krótki opis aktualności pojawi się w tym miejscu po
-                  podpięciu systemu treści.
-                </p>
+                <p className="eyebrow">{item.category}</p>
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+
+                <div className="article-meta compact-meta">
+                  <span>{item.date}</span>
+                  <span>{item.readingTime}</span>
+                </div>
+
+                <div className="card-action">
+                  <a href={`/aktualnosci/${item.slug}`}>Czytaj news</a>
+                </div>
               </div>
             </article>
           ))}
