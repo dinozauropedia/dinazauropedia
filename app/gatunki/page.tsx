@@ -1,17 +1,4 @@
-const species = [
-  "Tyrannosaurus rex",
-  "Triceratops",
-  "Velociraptor",
-  "Stegosaurus",
-  "Brachiosaurus",
-  "Spinosaurus",
-  "Allosaurus",
-  "Ankylosaurus",
-  "Diplodocus",
-  "Iguanodon",
-  "Pachycephalosaurus",
-  "Parasaurolophus",
-];
+import { species } from "../../data/species";
 
 export default function SpeciesPage() {
   return (
@@ -29,12 +16,18 @@ export default function SpeciesPage() {
 
       <section className="section">
         <div className="container species-grid">
-          {species.map((name) => (
-            <article className="species-card" key={name}>
+          {species.map((dinosaur) => (
+            <article className="species-card" key={dinosaur.slug}>
               <div className="species-icon">◉</div>
-              <h2>{name}</h2>
-              <p>Opis gatunku pojawi się wkrótce.</p>
-              <a href="#">Zobacz profil</a>
+              <h2>{dinosaur.name}</h2>
+              <p>{dinosaur.description}</p>
+
+              <div className="species-mini-data">
+                <span>{dinosaur.period}</span>
+                <span>{dinosaur.diet}</span>
+              </div>
+
+              <a href={`/gatunki/${dinosaur.slug}`}>Zobacz profil</a>
             </article>
           ))}
         </div>
