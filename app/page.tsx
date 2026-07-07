@@ -1,38 +1,38 @@
-const featuredArticles = [
+import { articles } from "../data/articles";
+
+const featuredArticles = articles.slice(0, 3);
+
+const featuredSpecies = [
   {
-    category: "Paleontologia",
-    title: "Czym jest paleontologia?",
-    description:
-      "Nauka o życiu sprzed milionów lat, skamieniałościach i historii Ziemi.",
-    meta: "6 min czytania",
+    name: "Tyrannosaurus rex",
+    slug: "tyrannosaurus-rex",
+    description: "Potężny drapieżnik późnej kredy i symbol świata dinozaurów.",
   },
   {
-    category: "Gatunki",
-    title: "Tyrannosaurus rex — król późnej kredy",
-    description:
-      "Najbardziej rozpoznawalny drapieżnik w historii i symbol świata dinozaurów.",
-    meta: "8 min czytania",
+    name: "Triceratops",
+    slug: "triceratops",
+    description: "Rogaty roślinożerca z masywną kryzą kostną.",
   },
   {
-    category: "Odkrycia",
-    title: "Nowe odkrycia, które zmieniły wiedzę o dinozaurach",
-    description:
-      "Dlaczego paleontologia ciągle zaskakuje i jak nowe znaleziska zmieniają podręczniki.",
-    meta: "7 min czytania",
-  },
-  {
-    category: "Ewolucja",
-    title: "Czy dinozaury naprawdę wyginęły?",
-    description:
-      "Ptaki jako żyjący potomkowie dinozaurów i jedna z najciekawszych historii ewolucji.",
-    meta: "5 min czytania",
+    name: "Velociraptor",
+    slug: "velociraptor",
+    description: "Niewielki, szybki teropod, prawdopodobnie pokryty piórami.",
   },
 ];
 
 const news = [
-  "Odkryto nowy gatunek dinozaura w Ameryce Południowej",
-  "Ślady dinozaurów w Polsce — najciekawsze stanowiska",
-  "Nowe badania nad piórami u teropodów",
+  {
+    title: "Odkryto nowy gatunek dinozaura w Ameryce Południowej",
+    href: "/aktualnosci",
+  },
+  {
+    title: "Ślady dinozaurów w Polsce — najciekawsze stanowiska",
+    href: "/aktualnosci",
+  },
+  {
+    title: "Nowe badania nad piórami u teropodów",
+    href: "/aktualnosci",
+  },
 ];
 
 export default function Home() {
@@ -88,18 +88,48 @@ export default function Home() {
 
             <div className="articles-grid">
               {featuredArticles.map((article) => (
-                <article className="article-card" key={article.title}>
-                  <div className="article-image">
-                    <span>{article.category}</span>
-                  </div>
+                <article className="article-card" key={article.slug}>
+                  <a href={`/artykuly/${article.slug}`}>
+                    <div className="article-image">
+                      <span>{article.category}</span>
+                    </div>
 
-                  <div className="article-content">
-                    <p className="article-category">{article.category}</p>
-                    <h3>{article.title}</h3>
-                    <p>{article.description}</p>
-                    <small>{article.meta}</small>
-                  </div>
+                    <div className="article-content">
+                      <p className="article-category">{article.category}</p>
+                      <h3>{article.title}</h3>
+                      <p>{article.description}</p>
+                      <small>{article.readingTime}</small>
+
+                      <div className="card-action">
+                        <span>Czytaj artykuł</span>
+                      </div>
+                    </div>
+                  </a>
                 </article>
+              ))}
+            </div>
+
+            <div className="section-heading species-home-heading">
+              <div>
+                <p className="eyebrow">Encyklopedia</p>
+                <h2>Popularne gatunki</h2>
+              </div>
+
+              <a href="/gatunki">Zobacz wszystkie</a>
+            </div>
+
+            <div className="home-species-grid">
+              {featuredSpecies.map((dinosaur) => (
+                <a
+                  className="home-species-card"
+                  href={`/gatunki/${dinosaur.slug}`}
+                  key={dinosaur.slug}
+                >
+                  <div className="species-icon">◉</div>
+                  <h3>{dinosaur.name}</h3>
+                  <p>{dinosaur.description}</p>
+                  <span>Zobacz profil</span>
+                </a>
               ))}
             </div>
 
@@ -172,14 +202,14 @@ export default function Home() {
               </div>
 
               {news.map((item) => (
-                <article className="news-item" key={item}>
+                <a className="news-item" href={item.href} key={item.title}>
                   <div className="news-thumb" />
 
                   <div>
-                    <h3>{item}</h3>
-                    <small>Nowy wpis</small>
+                    <h3>{item.title}</h3>
+                    <small>Przejdź do aktualności</small>
                   </div>
-                </article>
+                </a>
               ))}
             </div>
           </aside>
