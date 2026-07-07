@@ -2,25 +2,29 @@ const featuredArticles = [
   {
     category: "Paleontologia",
     title: "Czym jest paleontologia?",
-    description: "Nauka o życiu sprzed milionów lat, skamieniałościach i historii Ziemi.",
+    description:
+      "Nauka o życiu sprzed milionów lat, skamieniałościach i historii Ziemi.",
     meta: "6 min czytania",
   },
   {
     category: "Gatunki",
     title: "Tyrannosaurus rex — król późnej kredy",
-    description: "Najbardziej rozpoznawalny drapieżnik w historii i symbol świata dinozaurów.",
+    description:
+      "Najbardziej rozpoznawalny drapieżnik w historii i symbol świata dinozaurów.",
     meta: "8 min czytania",
   },
   {
     category: "Odkrycia",
     title: "Nowe odkrycia, które zmieniły wiedzę o dinozaurach",
-    description: "Dlaczego paleontologia ciągle zaskakuje i jak nowe znaleziska zmieniają podręczniki.",
+    description:
+      "Dlaczego paleontologia ciągle zaskakuje i jak nowe znaleziska zmieniają podręczniki.",
     meta: "7 min czytania",
   },
   {
     category: "Ewolucja",
     title: "Czy dinozaury naprawdę wyginęły?",
-    description: "Ptaki jako żyjący potomkowie dinozaurów i jedna z najciekawszych historii ewolucji.",
+    description:
+      "Ptaki jako żyjący potomkowie dinozaurów i jedna z najciekawszych historii ewolucji.",
     meta: "5 min czytania",
   },
 ];
@@ -34,44 +38,26 @@ const news = [
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <div className="container header-inner">
-          <a className="logo" href="#">
-            <span className="logo-mark">◉</span>
-            <span>Dinozauropedia.pl</span>
-          </a>
-
-          <nav className="nav">
-  <a href="/artykuly">Artykuły</a>
-  <a href="/gatunki">Gatunki</a>
-  <a href="/e-booki">E-booki</a>
-  <a href="/aktualnosci">Aktualności</a>
-  <a href="/sklep">Sklep</a>
-  <a href="/o-nas">O nas</a>
-</nav>
-
-          <a className="header-button" href="#">
-            Dołącz do newslettera
-          </a>
-        </div>
-      </header>
-
       <section className="hero">
         <div className="hero-overlay" />
+
         <div className="container hero-inner">
           <div className="hero-content">
             <p className="eyebrow">Portal o dinozaurach i prehistorii</p>
+
             <h1>Odkrywaj fascynujący świat dinozaurów</h1>
+
             <p className="hero-text">
               Rzetelne artykuły, ciekawostki, newsy i e-booki dla wszystkich,
               którzy chcą lepiej poznać prehistoryczny świat.
             </p>
 
             <div className="hero-actions">
-              <a className="primary-button" href="#">
+              <a className="primary-button" href="/artykuly">
                 Czytaj artykuły
               </a>
-              <a className="secondary-button" href="#">
+
+              <a className="secondary-button" href="/e-booki">
                 Pobierz darmowy e-book
               </a>
             </div>
@@ -96,7 +82,8 @@ export default function Home() {
                 <p className="eyebrow">Redakcja poleca</p>
                 <h2>Polecane artykuły</h2>
               </div>
-              <a href="#">Zobacz wszystkie</a>
+
+              <a href="/artykuly">Zobacz wszystkie</a>
             </div>
 
             <div className="articles-grid">
@@ -105,6 +92,7 @@ export default function Home() {
                   <div className="article-image">
                     <span>{article.category}</span>
                   </div>
+
                   <div className="article-content">
                     <p className="article-category">{article.category}</p>
                     <h3>{article.title}</h3>
@@ -139,7 +127,8 @@ export default function Home() {
 
               <div className="price-box">
                 <strong>39,90 zł</strong>
-                <a className="gold-button" href="#">
+
+                <a className="gold-button" href="/sklep">
                   Kup e-book
                 </a>
               </div>
@@ -155,12 +144,14 @@ export default function Home() {
                   Pobierz bezpłatny PDF i poznaj najciekawsze fakty o świecie
                   prehistorii.
                 </p>
+
                 <ul>
                   <li>10 fascynujących faktów</li>
                   <li>Dla dzieci i dorosłych</li>
                   <li>PDF od razu na urządzeniu</li>
                 </ul>
-                <a className="primary-button" href="#">
+
+                <a className="primary-button" href="/e-booki">
                   Pobierz za darmo
                 </a>
               </div>
@@ -183,6 +174,7 @@ export default function Home() {
               {news.map((item) => (
                 <article className="news-item" key={item}>
                   <div className="news-thumb" />
+
                   <div>
                     <h3>{item}</h3>
                     <small>Nowy wpis</small>
@@ -194,7 +186,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="newsletter">
+      <section className="newsletter" id="newsletter">
         <div className="container newsletter-inner">
           <div>
             <p className="eyebrow">Społeczność</p>
@@ -211,25 +203,6 @@ export default function Home() {
           </form>
         </div>
       </section>
-
-      <footer className="footer">
-        <div className="container footer-inner">
-          <div>
-            <a className="logo footer-logo" href="#">
-              <span className="logo-mark">◉</span>
-              <span>Dinozauropedia.pl</span>
-            </a>
-            <p>Twoje źródło wiedzy o dinozaurach i prehistorii.</p>
-          </div>
-
-          <div className="footer-links">
-            <a href="#">Artykuły</a>
-            <a href="#">Gatunki</a>
-            <a href="#">E-booki</a>
-            <a href="#">Kontakt</a>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
